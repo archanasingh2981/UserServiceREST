@@ -1,0 +1,46 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh15520\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+Service classes -\
+\
+1. UserService - this is the class exposed as REST service\
+\
+2. LoginService - this class is not exposed as a REST service , it is used to save the LoginLink to the user\
+\
+3. EmailService - As of now this class is just a place  holder to depict emailServer. I have not implemented this class completely as there are issues on installing SMTP server on Mac\
+\
+\
+\
+POJO/Entity classes -\
+User \
+LoginLink\
+\
+\
+\
+Dao/Store classs -\
+\
+UserStore.java - this class has methods to insert/update/delete a user\
+\
+LoginLinkStore.java -  this class has methods to insert/update/delete a user\
+\
+hibernate.cfg.xml - hibernate configuration file\
+\
+\
+Database used - Postgres\
+\
+Tables - \
+1.  User (ID,NAME,EMAIL,PINCODE,USERID) - for storing user data.\
+2. LOGINLINK (USERID, LINK, EXPIRY, EMAIL) - When a User calls login API with UserID, A login link will be created and stored in this table. EXPIRY is set to current time + 15 minutes.  If the user cals the login api again , the previous link will be deleted and a new login link will be created. USERID works a Primary key here.\
+\
+\
+\
+\
+\
+\
+}
