@@ -1,5 +1,7 @@
 package com.user.service;
 
+import java.util.StringTokenizer;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -7,6 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,6 +20,7 @@ import com.data.store.LoginLinkStore;
 import com.data.store.UserStore;
 
 @Path("/userservice")
+@XmlRootElement(name = "user")
 public class UserService {
 	
 	private static String SERVER_NAME = "USRVC.COM";
@@ -24,17 +28,26 @@ public class UserService {
 	private static String  SERVICE = "/userservice";
 	private static String LOGIN_LINK_URL= "/login";
 	
-	@Path("newuser/register")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/newuser/register")
+   //@Produces(MediaType.APPLICATION_JSON)
+   //@Consumes(MediaType.APPLICATION_XML)
 	@POST
 	public static String register(
-			User user) throws JSONException{
+			String userStr) throws Exception{
+		
+		StringTokenizer tokens = new StringTokenizer(userStr,",");
+		String userName = tokens.nextToken(",");
+		String email = tokens.nextToken(",");
+		String pincode = tokens.nextToken(",");
+		
+		
+		User user = new User(userName, email, pincode);
 		
 		String userId = UserStore.insertUser(user);
 		if (userId == null){
 			return "An error occured while saving the error , please try again later";
 		}
+		
 		JSONObject response  = new JSONObject();
 		response.put("userid",userId);
 		return response.toString();
@@ -59,6 +72,17 @@ public class UserService {
 		emailService.setLoginLink(loginLink);
 		emailService.sendEmail();
 		
+		return "User Id found, please check your registered email for details";
+	}
+	
+	
+	//below is not a part of the requirement, it is just to test the service
+	
+	@Path("/test")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public static String test(){
+							
 		return "User Id found, please check your registered email for details";
 	}
 	

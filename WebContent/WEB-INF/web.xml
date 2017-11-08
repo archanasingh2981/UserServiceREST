@@ -10,11 +10,11 @@
       <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class> 
       <init-param> 
          <param-name>jersey.config.server.provider.packages</param-name> 
-         <param-value>com.user.service.UserService</param-value> 
+         <param-value>com.user.service</param-value> 
       </init-param> 
    </servlet> 
    <servlet-mapping> 
       <servlet-name>Jersey RESTful Application</servlet-name> 
-      <url-pattern>/rest/*</url-pattern> 
+      <url-pattern>/*/</url-pattern> 
    </servlet-mapping>   
 </web-app>

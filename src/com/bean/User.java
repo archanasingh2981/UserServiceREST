@@ -6,19 +6,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name="C")
+@Table(name="usertable")
+@XmlRootElement
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private	Long id = 0L;
 	
-	private String name;
-	private String email;
-	private String pincode;
+	@XmlElement private String name;
+	@XmlElement private String email;
+	@XmlElement private String pincode;
 	private String userId;
+	
+	public User(String name, String email, String pincode){
+		this.name = name;
+		this.email = email;
+		this.pincode = pincode;
+	}
 	
 	public User(){}
 	
@@ -45,9 +54,6 @@ public class User {
 		return id;
 	}
 	
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 	
 	public void setId(long id){
 		this.id= id;

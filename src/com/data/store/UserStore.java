@@ -2,10 +2,11 @@ package com.data.store;
 
 
 
-import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Query;
+import org.hibernate.Query;
+
+//
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -31,14 +32,14 @@ public class UserStore {
 	
 
 
-public static String  insertUser(User user){
+public static String  insertUser(com.bean.User user){
 	Session session = factory.openSession();
 	
 	Transaction transaction = session.beginTransaction();
+	user.setUserId(); // we are setting the userId to be return back to the User, its not same as the PK field ID
 	
 	session.save(user);//persisting the object  
 	
-    
     transaction.commit();//transaction is committed  
     session.close();  
         
@@ -53,8 +54,7 @@ public static User findUser(String userId){
 	
 	Session session = factory.openSession();
 	
-	Query query =session.createQuery("from User where userId=:uid");  
-	query.setParameter("uid", userId);
+	Query query =session.createQuery("from com.bean.User where userId="+userId);  
 	
 	List list = query.getResultList();
 	

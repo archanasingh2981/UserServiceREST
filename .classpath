@@ -63,5 +63,20 @@
 	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jaxrs-ri 2/lib/jersey-media-jaxb.jar"/>
 	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jaxrs-ri 2/lib/jersey-client.jar"/>
 	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jaxrs-ri 2/lib/jersey-common.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jersey-container-servlet-core-2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/aopalliance-repackaged-2.4.0-b06.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/hk2-api-2.4.0-b06.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/hk2-locator-2.4.0-b06.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/hk2-utils-2.4.0-b06.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/javassist-3.18.1-GA.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/javax.annotation-api-1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/javax.inject-2.4.0-b06.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/javax.ws.rs-api-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/jersey-client-2.15.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/jersey-common-2.15.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/jersey-guava-2.15.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/jersey-server-2.15.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/osgi-resource-locator-1.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/archanasingh/Downloads/jar_files/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
