@@ -1,6 +1,5 @@
 package com.data.store;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -9,11 +8,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.json.JSONObject;
 
 import com.bean.LoginLink;
-import com.bean.User;
-import com.user.service.LoginLinkService;
 
 public class LoginLinkStore {
 	
@@ -34,7 +30,6 @@ public class LoginLinkStore {
 	public static LoginLink  addLink(LoginLink loginLink){
 		Session session = factory.openSession();
 		
-		System.out.println("am here");
 		Transaction transaction = session.beginTransaction();
 		
 		boolean deleted = false;
@@ -65,7 +60,6 @@ public class LoginLinkStore {
 		
 		Session session = factory.openSession();
 		
-		System.out.println("finding link");
 		Query query =session.createQuery("from LoginLink where userId=:uid");  
 		query.setParameter("uid", "user1");
 		
@@ -86,13 +80,12 @@ public class LoginLinkStore {
 		
 		Session session = factory.openSession();
 		
-		System.out.println("deleting the link");
 		Query query =session.createQuery("Delete from LoginLink where userId=:uid"); 
-		System.out.println("query created");
+		
 		query.setParameter("uid", userId);
 		Transaction t = session.beginTransaction();
 		int status = query.executeUpdate();
-		System.out.println("status-"+status);
+		
 		t.commit();
 		session.close();
 		

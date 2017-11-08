@@ -102,7 +102,7 @@ public class UserService {
 		}
 		else return "Error: something went wrong, we are checking it";
 		}
-		else return "Error : Something went wrong, looks like the link was expired.";
+		else return "Error : Something went wrong, looks like the link was expired. The link is valid for 15 minutes.";
 		
 	}
 	

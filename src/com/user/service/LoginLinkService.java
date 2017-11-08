@@ -10,8 +10,6 @@ public class LoginLinkService {
 	
 	
 	public static boolean isLinkValid(LoginLink loginLink){
-		System.out.println("1:- "+loginLink.getExpiry().getTimeInMillis());
-		System.out.println("2: -"+Calendar.getInstance().getTimeInMillis());
 		if(loginLink.getExpiry().getTimeInMillis()<Calendar.getInstance().getTimeInMillis()) return false;
 		else return true;
 	}
